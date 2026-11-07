@@ -1,8 +1,8 @@
 @echo off
 
 set DST_MOD_DIR=D:\Steam\steamapps\common\Don't Starve Together\mods
-set GALE_MOD_DIR=%DST_MOD_DIR%\gale
-set RELEASE_MOD_DIR=%DST_MOD_DIR%\gale_release
+set GALE_MOD_DIR=%DST_MOD_DIR%\PhoenotopiaEarthDome
+set RELEASE_MOD_DIR=%DST_MOD_DIR%\PhoenotopiaEarthDome_release
 
 @REM cd "%GALE_MOD_DIR%"
 git clone "%GALE_MOD_DIR%" "%RELEASE_MOD_DIR%" 

@@ -38,8 +38,14 @@ end)
 AddClientModRPCHandler("gale_rpc", "add_buff", function(target_name, stacks, buff_name, addition_tip, image_name, dtype)
 	if ThePlayer and ThePlayer.HUD then
 		ThePlayer.HUD.controls.GaleBuffBar:AddBuff(target_name,
-												   { stacks = stacks, buff_name = buff_name, addition_tip = addition_tip, image_name =
-												   image_name, dtype = dtype })
+			{
+				stacks = stacks,
+				buff_name = buff_name,
+				addition_tip = addition_tip,
+				image_name =
+					image_name,
+				dtype = dtype
+			})
 	end
 end)
 
@@ -47,8 +53,14 @@ AddClientModRPCHandler("gale_rpc", "update_buff", function(target_name, stacks, 
 														   dtype)
 	if ThePlayer and ThePlayer.HUD then
 		ThePlayer.HUD.controls.GaleBuffBar:UpdateBuff(target_name,
-													  { stacks = stacks, buff_name = buff_name, addition_tip =
-													  addition_tip, image_name = image_name, dtype = dtype })
+			{
+				stacks = stacks,
+				buff_name = buff_name,
+				addition_tip =
+					addition_tip,
+				image_name = image_name,
+				dtype = dtype
+			})
 	end
 end)
 
@@ -143,7 +155,9 @@ AddPrefabPostInitAny(function(inst)
 	end)
 
 	inst:ListenForEvent("newstate", function(inst, data)
-		if GaleConditionUtil.GetCondition(inst, "condition_inbattle") ~= nil and inst.sg:HasStateTag("attack") then
+		if GaleConditionUtil.GetCondition(inst, "condition_inbattle") ~= nil
+			and inst.sg
+			and inst.sg:HasStateTag("attack") then
 			GaleConditionUtil.AddCondition(inst, "condition_inbattle")
 		end
 	end)
